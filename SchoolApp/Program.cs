@@ -80,7 +80,11 @@ namespace SchoolApp
                     Console.WriteLine($"Exception catched: {e.Message}");
                 }
             }
-            student.AddSubjectGrade(DataConversion.gradeConvert);
+
+            if (DataConversion.gradeConvert >= 0)
+            {
+                student.AddSubjectGrade(DataConversion.gradeConvert);
+            }
 
         }
 
@@ -96,6 +100,7 @@ namespace SchoolApp
 
 
 
+        Console.WriteLine("======================================");
 
 
         //employee.AddGrade(1.6f);

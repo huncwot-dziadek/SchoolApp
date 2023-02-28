@@ -25,7 +25,7 @@ namespace SchoolApp
         }
 
 
-                //public override void AddSubjectGrade(float grade)
+        //public override void AddSubjectGrade(float grade)
         //{
         //    if (grade >= 0 && grade <= 100)
         //    {

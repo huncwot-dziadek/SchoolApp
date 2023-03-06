@@ -11,7 +11,6 @@ namespace SchoolApp
     public class DataConversion
     {
         //public event GradeConvertDelegate GradeConvert;
-        //private int[] inputTab = new int[2];
 
         public static float gradeConvert;
 
@@ -46,7 +45,6 @@ namespace SchoolApp
             {
                 throw new Exception("String is not float");
             }
-
         }
 
         public void RangeCheck(float grade)
@@ -69,7 +67,7 @@ namespace SchoolApp
                 int grade = 0;
                 int badNumber1 = 0;
 
-                if (input[0] >= 49 && input[0] <= 54)    //if (!string.IsNullOrEmpty(input)) { }
+                if (input[0] >= 49 && input[0] <= 54)
                 {
                     switch (input[0])
                     {
@@ -94,7 +92,6 @@ namespace SchoolApp
                         default:
                             break;
                     }
-                    //this.RangeCheck(gradeConvert);
                 }
                 else
                 {
@@ -118,52 +115,52 @@ namespace SchoolApp
                 {
                     Console.WriteLine($"Exception catched: {e.Message}");
                 }
-
             }
-
 
             if (input.Length == 2)
             {
                 int[] grade = new int[2] { 0, 0 };
                 int badNumber2 = 0;
 
-                for (int i = 0; i < 2; i++)
-                {
-                    if (input[i] == 43 || input[i] == 45 || (input[i] >= 49 && input[i] <= 54))     //
-                    {
-                        switch (input[i])
-                        {
-                            case '6':
-                                grade[i] += 95;
-                                break;
-                            case '5':
-                                grade[i] += 80;
-                                break;
-                            case '4':
-                                grade[i] += 60;
-                                break;
-                            case '3':
-                                grade[i] += 40;
-                                break;
-                            case '2':
-                                grade[i] += 20;
-                                break;
-                            case '1':
-                                grade[i] += 5;
-                                break;
-                            case '+':
-                                grade[i] += 5;
-                                break;
-                            case '-':
-                                grade[i] += -5;
-                                break;
-                        }
+                int i = 0;
 
-                    }
-                    else
+                if ((input[i] >= 49 && input[i] <= 54) && (input[i + 1] == 43 || input[i + 1] == 45))     //
+                {
+                    switch (input[i])
                     {
-                        badNumber2++;
+                        case '6':
+                            grade[i] += 95;
+                            break;
+                        case '5':
+                            grade[i] += 80;
+                            break;
+                        case '4':
+                            grade[i] += 60;
+                            break;
+                        case '3':
+                            grade[i] += 40;
+                            break;
+                        case '2':
+                            grade[i] += 20;
+                            break;
+                        case '1':
+                            grade[i] += 5;
+                            break;
                     }
+                    switch (input[i + 1])
+                    {
+                        case '+':
+                            grade[i + 1] += 5;
+                            break;
+                        case '-':
+                            grade[i + 1] += -5;
+                            break;
+                    }
+                }
+                else
+                {
+                    badNumber2++;
+
                 }
 
                 try
@@ -183,157 +180,7 @@ namespace SchoolApp
                 {
                     Console.WriteLine($"Exception catched: {e.Message}");
                 }
-                //var gradeTab = (grade[0] + grade[1]);
-                //gradeConvert = (float)gradeTab;
             }
-
-
-            //for (int i = 0; i <= 1; i++)
-            //{
-            //    switch (input[i])
-            //    {
-            //        case '6':
-            //            grade[i] = 100;
-            //            break;
-            //        case '5':
-            //            grade[i] = 80;
-            //            break;
-            //        case '4':
-            //            grade[i] = 60;
-            //            break;
-            //        case '3':
-            //            grade[i] = 40;
-            //            break;
-            //        case '2':
-            //            grade[i] = 20;
-            //            break;
-            //        case '1':
-            //            grade[i] = 0;
-            //            break;
-            //        case '+':
-            //            grade[i] = 5;
-            //            break;
-            //        case '-':
-            //            grade[i] = -5;
-            //            break;
-
-            //    }
-
-            //}
-            //var gradeTab = (grade[0] + grade[1]);
-            //gradeConvert = (float)gradeTab;
-
-            //Student.AddSubjectGrade(gradeConvert);
-
-
-
-            //else
-            //{
-            //    throw new Exception("Incorrect input");
-            //}
         }
     }
 }
-
-
-
-
-
-//if (input.Length == 1)
-//        {
-//            switch (input)
-//            {
-//                case "6":
-//                    gradeConvert = 100;
-//                    break;
-//                case "5":
-//                    gradeConvert = 80;
-//                    break;
-//                case "4":
-//                    gradeConvert = 60;
-//                    break;
-//                case "3":
-//                    gradeConvert = 40;
-//                    break;
-//                case "2":
-//                    gradeConvert = 20;
-//                    break;
-//                case "1":
-//                    gradeConvert = 0;
-//                    break;
-//            }
-//        }
-
-//        else if (input.Length == 2)
-//        {
-//            int[] grade = new int[2];
-
-
-//            for (int i = 0; i <= 1; i++)
-//            {
-//                switch (input[i])
-//                {
-//                    case '6':
-//                        grade[i] = 100;
-//                        break;
-//                    case '5':
-//                        grade[i] = 80;
-//                        break;
-//                    case '4':
-//                        grade[i] = 60;
-//                        break;
-//                    case '3':
-//                        grade[i] = 40;
-//                        break;
-//                    case '2':
-//                        grade[i] = 20;
-//                        break;
-//                    case '1':
-//                        grade[i] = 0;
-//                        break;
-//                    case '+':
-//                        grade[i] = 5;
-//                        break;
-//                    case '-':
-//                        grade[i] = -5;
-//                        break;
-
-//                }
-
-//            }
-//            gradeConvert = (grade[0] + grade[1]);
-//        }
-//        else
-//        {
-//throw new Exception("Incorrect input");
-//        }
-//    }
-
-
-//public void ConversionGrade(char grade)
-//{
-//    switch (grade)
-//    {
-//        case 'A':
-//        case 'a':
-//            gradeConvert = 100;
-//            break;
-//        case 'B':
-//        case 'b':
-//            gradeConvert = 75;
-//            break;
-//        case 'C':
-//        case 'c':
-//            gradeConvert = 50;
-//            break;
-//        case 'D':
-//        case 'd':
-//            gradeConvert = 25;
-//            break;
-//        case 'E':
-//        case 'e':
-//            gradeConvert = 0;
-//            break;
-
-//    }
-//}

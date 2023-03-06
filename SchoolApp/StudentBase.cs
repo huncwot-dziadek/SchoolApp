@@ -16,20 +16,9 @@ namespace SchoolApp
 
         public string Surname { get; private set; }
 
-
         public abstract void AddSubjectGrade(float grade);
 
-        //public abstract void AddSubjectGrade(double grade);
-
-        //public abstract void AddSubjectGrade(int grade);
-
-        //public abstract void AddSubjectGrade(char grade);
-
-        //public abstract void AddSubjectGrade(string grade);
-
-        //public abstract void AddTestGrade(int grade);
-
         public abstract Statistics GetStatistics();
-        
+
     }
 }

@@ -18,13 +18,12 @@ namespace SchoolApp
         {
         }
 
-
         public override void AddSubjectGrade(float gradeConvert)
         {
             grades.Add(gradeConvert);
         }
 
-        public override Statistics GetStatistics()       
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
 

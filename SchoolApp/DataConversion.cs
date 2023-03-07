@@ -18,49 +18,12 @@ namespace SchoolApp
         {
         }
 
-        public void ConversionGrade(float grade)
-        {
-            RangeCheck(grade);
-        }
-        public void ConversionGrade(double grade)
-        {
-            var gradeMadeOfDouble = (float)grade;
-            RangeCheck(gradeMadeOfDouble);
-        }
-        public void ConversionGrade(int grade)
-        {
-            var gradeMadeOfInt = (float)grade;
-            RangeCheck(gradeMadeOfInt);
-        }
-        public void ConversionGrade(string grade)
-        {
-            float.Parse(grade);
-
-            if (float.TryParse(grade, out float resultFloat))
-            {
-                RangeCheck(resultFloat);
-            }
-
-            else
-            {
-                throw new Exception("String is not float");
-            }
-        }
-
         public void RangeCheck(float grade)
         {
-            if (grade >= 0 && grade <= 100)
-            {
-                var gradeConvert = grade;
-            }
-            else
-            {
-                throw new Exception("Grade out of range");
-            }
+            DataConversion.gradeConvert = grade;
         }
 
         public void ExchangeInput(string input)
-
         {
             if (input.Length == 1)
             {
@@ -101,14 +64,12 @@ namespace SchoolApp
                 {
                     if (badNumber1 == 0)
                     {
-                        var gradeOut = grade;
-                        gradeConvert = (float)gradeOut;
-                        this.RangeCheck(gradeConvert);
+                        this.RangeCheck(grade);
                     }
                     else
                     {
                         gradeConvert = -1.0f;
-                        throw new Exception(message: "Incorrect input 1 data, try again");
+                        throw new Exception(message: "Incorrect input, try again");
                     }
                 }
                 catch (Exception e)
@@ -160,7 +121,6 @@ namespace SchoolApp
                 else
                 {
                     badNumber2++;
-
                 }
 
                 try
@@ -168,12 +128,14 @@ namespace SchoolApp
                     if (badNumber2 == 0)
                     {
                         var gradeTab = (grade[0] + grade[1]);
-                        gradeConvert = (float)gradeTab;
+                        var gradeTabConvert = (float)gradeTab;
+                        this.RangeCheck(gradeTabConvert);
                     }
+
                     else
                     {
                         gradeConvert = -1.0f;
-                        throw new Exception(message: "Incorrect input 2 data, try again");
+                        throw new Exception(message: "Incorrect input, try again");
                     }
                 }
                 catch (Exception e)

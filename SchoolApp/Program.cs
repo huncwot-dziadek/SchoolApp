@@ -21,9 +21,8 @@ namespace SchoolApp
         Console.Write("Surname:               ");
         var surname = Console.ReadLine();
         var student = new Student(name, surname);
-        var dataInput = new DataInput();
+        //var dataInput = new DataInput();
         var dataConversion = new DataConversion();
-
 
         fileName = $"{student.Name} {student.Surname}";
 
@@ -35,7 +34,7 @@ namespace SchoolApp
         {
             Console.WriteLine("Give a rating:");
             var nextInput = Console.ReadLine();
-           
+
             if (nextInput == "q" || nextInput == "Q")
             {
                 break;
@@ -48,30 +47,13 @@ namespace SchoolApp
 
             else
             {
-                try
-                {
-                    float.TryParse(nextInput, out var value);
-
-                    if (value != 0)
-                    {
-                        dataConversion.ConversionGrade(value);
-                    }
-                    else
-                    {
-                        throw new Exception(message: "Grade is not float");
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Exception catched: {e.Message}");
-                }
+                Console.WriteLine("Incorrect input, try again");
             }
 
             if (DataConversion.gradeConvert >= 0)
             {
                 student.AddSubjectGrade(DataConversion.gradeConvert);
             }
-
         }
 
         var statistics = student.GetStatistics();
@@ -94,10 +76,9 @@ namespace SchoolApp
             {
                 DateTime thisDay = DateTime.Today;
                 writer.WriteLine(thisDay.ToString("d"));
-                writer.WriteLine($"Ocena minimalna:   {statistics.Min}");
+                writer.WriteLine($"Ocena minimalna:    {statistics.Min}");
                 writer.WriteLine($"Ocena maksymalna:   {statistics.Max}");
-                writer.WriteLine($"Srednia ocen:   {statistics.Average:N2}");
-
+                writer.WriteLine($"Srednia ocen:       {statistics.Average:N2}");
             }
         }
     }

@@ -19,26 +19,7 @@ namespace SchoolApp
                 return this.Sum / this.Count;
             }
         }
-        public char AverageLetter
-        {
-            get
-            {
-                switch (this.Average)
-                {
-                    case var average when average >= 80:
-                        return 'A';
-                    case var average when average >= 60:
-                        return 'B';
-                    case var average when average >= 40:
-                        return 'C';
-                    case var average when average >= 20:
-                        return 'D';
-                    default:
-                        return 'E';
-                }
-            }
-        }
-        
+
         public Statistics()
         {
             this.Count = 0;
@@ -53,7 +34,6 @@ namespace SchoolApp
             this.Max = Math.Max(this.Max, grade);
             this.Min = Math.Min(this.Min, grade);
         }
-
     }
 }
 

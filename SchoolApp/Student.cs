@@ -8,10 +8,7 @@ using static SchoolApp.StudentBase;
 namespace SchoolApp
 {
     internal class Student : StudentBase
-    {
-
-        //public override event GradeConvertDelegate GradeConvert;
-
+    {            
         private List<float> grades = new List<float>();
         public Student(string name, string surname)
             : base(name, surname)

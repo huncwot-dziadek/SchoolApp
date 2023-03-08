@@ -10,8 +10,6 @@ namespace SchoolApp
 {
     public class DataConversion
     {
-        //public event GradeConvertDelegate GradeConvert;
-
         public static float gradeConvert;
 
         public DataConversion()

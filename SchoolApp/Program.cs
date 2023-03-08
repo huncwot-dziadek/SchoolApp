@@ -21,10 +21,9 @@ namespace SchoolApp
         Console.Write("Surname:               ");
         var surname = Console.ReadLine();
         var student = new Student(name, surname);
-        //var dataInput = new DataInput();
         var dataConversion = new DataConversion();
 
-        fileName = $"{student.Name} {student.Surname}";
+        fileName = $"{student.Name} {student.Surname}.txt";
 
         Console.WriteLine();
         Console.WriteLine("Start entering data or exit the program by pressing key Q:");
@@ -72,6 +71,13 @@ namespace SchoolApp
 
         if (decision == "y" || decision == "Y")
         {
+            if (statistics.Average >= 80)
+            {
+                fileName = $"{student.Name} {student.Surname} is qualified.txt";
+                var teamTheBestStudents = new TeamTheBestStudents(student.Surname, student.Name);
+                teamTheBestStudents.AddStudent(student.Surname, student.Name);
+            }
+
             using (var writer = File.AppendText(Program.fileName))
             {
                 DateTime thisDay = DateTime.Today;

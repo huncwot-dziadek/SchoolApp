@@ -4,8 +4,6 @@ namespace SchoolApp
 {
     public abstract class StudentBase : IStudent
     {
-        //public abstract event GradeConvertDelegate GradeConvert;
-
         public StudentBase(string name, string surname)
         {
             this.Name = name;

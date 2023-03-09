@@ -7,7 +7,7 @@ using static SchoolApp.StudentBase;
 
 namespace SchoolApp
 {
-    internal class Student : StudentBase
+    public class Student : StudentBase
     {            
         private List<float> grades = new List<float>();
         public Student(string name, string surname)

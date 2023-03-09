@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,8 @@ namespace SchoolApp
         public void RangeCheck(float grade)
         {
             DataConversion.gradeConvert = grade;
+           
+            //AddSubjectGrade(grade);
         }
 
         public void ExchangeInput(string input)
@@ -66,6 +69,7 @@ namespace SchoolApp
                     }
                     else
                     {
+                        Program.j--;
                         gradeConvert = -1.0f;
                         throw new Exception(message: "Incorrect input, try again");
                     }
@@ -132,6 +136,7 @@ namespace SchoolApp
 
                     else
                     {
+                        Program.j--;
                         gradeConvert = -1.0f;
                         throw new Exception(message: "Incorrect input, try again");
                     }

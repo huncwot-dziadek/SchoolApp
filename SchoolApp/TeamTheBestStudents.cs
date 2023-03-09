@@ -25,9 +25,20 @@ namespace SchoolApp
         {
             var surnameName = $"{this.Surname} {this.Name}";
             students.Add(surnameName);
-            using (var writer = File.AppendText(fileNameList))
+            //using (var writer = File.AppendText(fileNameList))
+            //{
+            //    writer.WriteLine(surnameName);
+            //}
+        }
+
+        public void WriteStudents(string surname, string name)
+        {
+            foreach (var student in students)
             {
-                writer.WriteLine(surnameName);
+                using (var writer = File.AppendText(fileNameList))
+                {
+                    writer.WriteLine(student);
+                }
             }
         }
     }

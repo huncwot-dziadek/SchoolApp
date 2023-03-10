@@ -33,7 +33,7 @@ namespace SchoolApp
 
         //numberOfStudents = Console.ReadLine();
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
             Console.WriteLine("Enter student details:");
             Console.Write("Name:                  ");
@@ -110,11 +110,16 @@ namespace SchoolApp
             Console.WriteLine("Save the student's results?  Y/N");
             var decision = Console.ReadLine();
 
+            //TeamTheBestStudents.ReadInFile();
+
+
+
             if (decision == "y" || decision == "Y")
             {
                 if (statistics.Average >= 80)
                 {
                     fileName = $"{student.Name} {student.Surname} is qualified.txt";
+                    
                     //var teamTheBestStudents = new TeamTheBestStudents(student.Surname, student.Name);
                     teamTheBestStudents.AddStudent(student.Surname, student.Name);
                 }
@@ -131,7 +136,9 @@ namespace SchoolApp
             numberOfSubjects = 0;
         }
 
-        TeamTheBestStudents.students.Sort();
+        //TeamTheBestStudents.students.Sort();
+
+        //TeamTheBestStudents.ReadInFile();
 
         foreach (var student in TeamTheBestStudents.students)
         {
@@ -140,7 +147,7 @@ namespace SchoolApp
                 writer.WriteLine(student);
             }
         }
-    } 
+    }
 }
 
 

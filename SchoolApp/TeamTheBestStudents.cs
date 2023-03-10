@@ -11,6 +11,9 @@ namespace SchoolApp
         public static string fileNameList = "list of qualified students.txt";
 
         public static List<string> students = new List<string>();
+
+        //var students = null;
+
         public TeamTheBestStudents(string surname, string name)
         {
             Name = name;
@@ -31,6 +34,41 @@ namespace SchoolApp
             //}
         }
 
+
+        //public static void ReadInFile()
+        //{
+        //    if (File.Exists(fileNameList))
+        //    {
+        //        using (var reader = File.OpenText(fileNameList))
+        //        {
+        //            var line = reader.ReadLine();
+        //            while (line != null)
+        //            {
+        //                //var number = float.Parse(line);
+        //                //grades.Add(number);
+        //                students.Add(line);
+        //                line = reader.ReadLine();                        
+        //            }
+        //        }
+        //    }
+        //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //public void WriteStudents(string surname, string name)
         //{
         //    foreach (var student in students)
@@ -41,6 +79,7 @@ namespace SchoolApp
         //        }
         //    }
         //}
+
     }
 }
 

@@ -12,8 +12,6 @@ namespace SchoolApp
 
         public static List<string> students = new List<string>();
 
-        //var students = null;
-
         public TeamTheBestStudents(string surname, string name)
         {
             Name = name;
@@ -28,30 +26,24 @@ namespace SchoolApp
         {
             var surnameName = $"{this.Surname} {this.Name}";
             students.Add(surnameName);
-            //using (var writer = File.AppendText(fileNameList))
-            //{
-            //    writer.WriteLine(surnameName);
-            //}
         }
 
-
-        //public static void ReadInFile()
-        //{
-        //    if (File.Exists(fileNameList))
-        //    {
-        //        using (var reader = File.OpenText(fileNameList))
-        //        {
-        //            var line = reader.ReadLine();
-        //            while (line != null)
-        //            {
-        //                //var number = float.Parse(line);
-        //                //grades.Add(number);
-        //                students.Add(line);
-        //                line = reader.ReadLine();                        
-        //            }
-        //        }
-        //    }
-        //}
+        public static void ReadInFile()
+        {
+            if (File.Exists(fileNameList))
+            {
+                using (var reader = File.OpenText(fileNameList))
+                {
+                    var line = reader.ReadLine();
+                    while (line != null)
+                    {
+                        students.Add(line);
+                        line = reader.ReadLine();
+                    }
+                }
+                File.Delete(fileNameList);
+            }
+        }
 
 
 

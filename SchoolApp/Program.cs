@@ -11,8 +11,6 @@ namespace SchoolApp
     static string fileName;
     public static int numberOfSubjects = 0;
 
-    //public static int numberOfStudents = 0;
-
     enum subject
     {
         combinatorics______,
@@ -23,17 +21,21 @@ namespace SchoolApp
     }
 
     private static void Main(string[] args)
+
     {
-
-
-        Console.WriteLine("Welcome to the program WHAT STUDENT");
-        Console.WriteLine("                       =============");
+        Console.WriteLine("Welcome to the program WHICH STUDENT WILL ADVANCE");
+        Console.WriteLine("                       ==========================");
         Console.WriteLine();
+        Console.WriteLine("This is the first huncwot program");
         Console.WriteLine();
+        Console.WriteLine("Here we go");
+        Console.WriteLine();
+        Console.Write("How many students do you want to grades?   ");
 
-        //numberOfStudents = Console.ReadLine();
+        var number = Console.ReadLine();
+        var numberOfStudents = int.Parse(number);
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < numberOfStudents; i++)
         {
             Console.WriteLine("Enter student details:");
             Console.Write("Name:                  ");
@@ -44,8 +46,6 @@ namespace SchoolApp
             var student = new Student(name, surname);
             var dataConversion = new DataConversion();
             var teamTheBestStudents = new TeamTheBestStudents(surname, name);
-
-
 
             fileName = $"{student.Name} {student.Surname}.txt";
 
@@ -83,17 +83,11 @@ namespace SchoolApp
                     }
                 }
 
-
                 else
                 {
                     numberOfSubjects--;
                     Console.WriteLine("Incorrect input, try again");
                 }
-
-                //if (DataConversion.gradeConvert >= 0)
-                //{
-                //    student.AddSubjectGrade(DataConversion.gradeConvert);
-                //}
             }
 
             var statistics = student.GetStatistics();
@@ -110,17 +104,13 @@ namespace SchoolApp
             Console.WriteLine("Save the student's results?  Y/N");
             var decision = Console.ReadLine();
 
-            //TeamTheBestStudents.ReadInFile();
-
-
+            TeamTheBestStudents.ReadInFile();
 
             if (decision == "y" || decision == "Y")
             {
                 if (statistics.Average >= 80)
                 {
                     fileName = $"{student.Name} {student.Surname} is qualified.txt";
-                    
-                    //var teamTheBestStudents = new TeamTheBestStudents(student.Surname, student.Name);
                     teamTheBestStudents.AddStudent(student.Surname, student.Name);
                 }
 
@@ -136,9 +126,7 @@ namespace SchoolApp
             numberOfSubjects = 0;
         }
 
-        //TeamTheBestStudents.students.Sort();
-
-        //TeamTheBestStudents.ReadInFile();
+        TeamTheBestStudents.students.Sort();
 
         foreach (var student in TeamTheBestStudents.students)
         {

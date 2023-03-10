@@ -19,9 +19,7 @@ namespace SchoolApp
 
         public void RangeCheck(float grade)
         {
-            DataConversion.gradeConvert = grade;
-           
-            //AddSubjectGrade(grade);
+            DataConversion.gradeConvert = grade;           
         }
 
         public void ExchangeInput(string input)

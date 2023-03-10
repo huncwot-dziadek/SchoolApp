@@ -2,13 +2,16 @@
 using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 
 namespace SchoolApp
 
 ; public class Program
 {
     static string fileName;
-    public static int j = 0;
+    public static int numberOfSubjects = 0;
+
+    //public static int numberOfStudents = 0;
 
     enum subject
     {
@@ -21,12 +24,16 @@ namespace SchoolApp
 
     private static void Main(string[] args)
     {
+
+
         Console.WriteLine("Welcome to the program WHAT STUDENT");
         Console.WriteLine("                       =============");
         Console.WriteLine();
         Console.WriteLine();
 
-        for (int i = 0; i < 4; i++)
+        //numberOfStudents = Console.ReadLine();
+
+        for (int i = 0; i < 5; i++)
         {
             Console.WriteLine("Enter student details:");
             Console.Write("Name:                  ");
@@ -36,6 +43,9 @@ namespace SchoolApp
             var surname = Console.ReadLine();
             var student = new Student(name, surname);
             var dataConversion = new DataConversion();
+            var teamTheBestStudents = new TeamTheBestStudents(surname, name);
+
+
 
             fileName = $"{student.Name} {student.Surname}.txt";
 
@@ -46,10 +56,10 @@ namespace SchoolApp
             Console.WriteLine("Give a ratings:");
             while (true)
             {
-                if (j <= 4)
+                if (numberOfSubjects <= 4)
                 {
-                    Console.Write($"{(subject)j}");                    
-                    j++;
+                    Console.Write($"{(subject)numberOfSubjects}");
+                    numberOfSubjects++;
                 }
                 else
                 {
@@ -76,7 +86,7 @@ namespace SchoolApp
 
                 else
                 {
-                    j--;
+                    numberOfSubjects--;
                     Console.WriteLine("Incorrect input, try again");
                 }
 
@@ -105,7 +115,7 @@ namespace SchoolApp
                 if (statistics.Average >= 80)
                 {
                     fileName = $"{student.Name} {student.Surname} is qualified.txt";
-                    var teamTheBestStudents = new TeamTheBestStudents(student.Surname, student.Name);
+                    //var teamTheBestStudents = new TeamTheBestStudents(student.Surname, student.Name);
                     teamTheBestStudents.AddStudent(student.Surname, student.Name);
                 }
 
@@ -118,10 +128,19 @@ namespace SchoolApp
                     writer.WriteLine($"Srednia ocen:       {statistics.Average:N2}");
                 }
             }
-            j = 0;
-
+            numberOfSubjects = 0;
         }
-    }
+
+        TeamTheBestStudents.students.Sort();
+
+        foreach (var student in TeamTheBestStudents.students)
+        {
+            using (var writer = File.AppendText(TeamTheBestStudents.fileNameList))
+            {
+                writer.WriteLine(student);
+            }
+        }
+    } 
 }
 
 

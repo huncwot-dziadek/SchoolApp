@@ -8,9 +8,9 @@ namespace SchoolApp
 {
     internal class TeamTheBestStudents
     {
-        private const string fileNameList = "list of qualified students.txt";
+        public static string fileNameList = "list of qualified students.txt";
 
-        private List<string> students = new List<string>();
+        public static List<string> students = new List<string>();
         public TeamTheBestStudents(string surname, string name)
         {
             Name = name;
@@ -31,16 +31,16 @@ namespace SchoolApp
             //}
         }
 
-        public void WriteStudents(string surname, string name)
-        {
-            foreach (var student in students)
-            {
-                using (var writer = File.AppendText(fileNameList))
-                {
-                    writer.WriteLine(student);
-                }
-            }
-        }
+        //public void WriteStudents(string surname, string name)
+        //{
+        //    foreach (var student in students)
+        //    {
+        //        using (var writer = File.AppendText(fileNameList))
+        //        {
+        //            writer.WriteLine(student);
+        //        }
+        //    }
+        //}
     }
 }
 

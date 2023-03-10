@@ -69,7 +69,7 @@ namespace SchoolApp
                     }
                     else
                     {
-                        Program.j--;
+                        Program.numberOfSubjects--;
                         gradeConvert = -1.0f;
                         throw new Exception(message: "Incorrect input, try again");
                     }
@@ -136,7 +136,7 @@ namespace SchoolApp
 
                     else
                     {
-                        Program.j--;
+                        Program.numberOfSubjects--;
                         gradeConvert = -1.0f;
                         throw new Exception(message: "Incorrect input, try again");
                     }
